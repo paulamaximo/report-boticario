@@ -1,5 +1,1309 @@
-<!doctype html>
-<html>
-  <head><meta charset="utf-8"><title>Teste</title></head>
-  <body><h1>GitHub Pages OK</h1></body>
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storyline Executivo & Roadmap - Grupo Boticário | Agentforce AI</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        boticario: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#00a86b',
+                            600: '#008b58',
+                            700: '#0b3c26',
+                            800: '#062819',
+                            900: '#02130c',
+                        },
+                        salesforce: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0176D3',
+                            600: '#015ba3',
+                            700: '#01447a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.light-mode {
+            background-color: #f2fbf7;
+            color: #103126;
+        }
+        body.light-mode #objetivo {
+            background: linear-gradient(135deg, #e9f9f2 0%, #f5fcf8 55%, #ecfdf5 100%) !important;
+            border-color: #b6e4cf !important;
+        }
+        body.light-mode .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 168, 107, 0.22);
+        }
+        body.light-mode [class*="bg-slate-950"],
+        body.light-mode [class*="bg-slate-900"],
+        body.light-mode [class*="bg-slate-800"] {
+            background-color: #f9fefa !important;
+        }
+        body.light-mode [class*="text-white"] {
+            color: #103126 !important;
+        }
+        body.light-mode [class*="text-slate-50"],
+        body.light-mode [class*="text-slate-100"],
+        body.light-mode [class*="text-slate-200"] {
+            color: #103126 !important;
+        }
+        body.light-mode [class*="text-slate-400"],
+        body.light-mode [class*="text-slate-300"],
+        body.light-mode [class*="text-slate-500"] {
+            color: #2f5f4f !important;
+        }
+        body.light-mode main h1,
+        body.light-mode main h2,
+        body.light-mode main h3,
+        body.light-mode main h4,
+        body.light-mode main p,
+        body.light-mode main li,
+        body.light-mode main td,
+        body.light-mode main th,
+        body.light-mode main span {
+            color: #103126 !important;
+        }
+        body.light-mode main [class*="text-emerald-"],
+        body.light-mode main [class*="text-sky-"],
+        body.light-mode main [class*="text-purple-"],
+        body.light-mode main [class*="text-indigo-"],
+        body.light-mode main [class*="text-amber-"],
+        body.light-mode main [class*="text-red-"] {
+            color: inherit;
+        }
+        body.light-mode [class*="border-slate-800"],
+        body.light-mode [class*="border-slate-700"] {
+            border-color: #b6e4cf !important;
+        }
+        body.light-mode [class*="bg-emerald-950"],
+        body.light-mode [class*="bg-sky-950"],
+        body.light-mode [class*="bg-purple-950"],
+        body.light-mode [class*="bg-indigo-950"],
+        body.light-mode [class*="bg-amber-950"] {
+            color: #f8fafc !important;
+        }
+        body.light-mode [class*="bg-emerald-950"] [class*="text-"],
+        body.light-mode [class*="bg-sky-950"] [class*="text-"],
+        body.light-mode [class*="bg-purple-950"] [class*="text-"],
+        body.light-mode [class*="bg-indigo-950"] [class*="text-"],
+        body.light-mode [class*="bg-amber-950"] [class*="text-"] {
+            color: #f8fafc !important;
+        }
+        body.light-mode .timeline-line::before {
+            background: linear-gradient(180deg, #00a86b 0%, #34d399 50%, #7ac8a5 100%);
+        }
+        body.light-mode .status-dark,
+        body.light-mode .status-dark * {
+            color: #f8fafc !important;
+        }
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 168, 107, 0.4);
+            box-shadow: 0 12px 24px -10px rgba(0, 168, 107, 0.2);
+        }
+        .gradient-text-boticario {
+            background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 3px;
+            background: linear-gradient(180deg, #00a86b 0%, #0176D3 50%, #334155 100%);
+        }
+        @media (min-width: 768px) {
+            .timeline-line::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00a86b; }
+        .hero-watermark {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            width: 220px;
+            max-width: 32%;
+            opacity: 0.07;
+            filter: none;
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 0;
+        }
+        body.light-mode .hero-watermark {
+            opacity: 0.05;
+            mix-blend-mode: screen;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .glass-card { background: white !important; color: black !important; border: 1px solid #ccc !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-boticario-500 selection:text-white pb-16">
+
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-800 shadow-xl no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-3 space-y-3">
+                <div class="flex items-center justify-between gap-4">
+                    <!-- Project Name -->
+                    <div class="flex items-center gap-3 min-w-0">
+                        <div class="flex items-center gap-3 px-1 py-1">
+                            <img src="/Users/paulaf/Downloads/boticario-simbolo-transparente.png" alt="Símbolo Boticário" class="h-7 w-auto object-contain">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Logo Salesforce" class="h-7 w-auto object-contain">
+                        </div>
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2 min-w-0">
+                                <span class="font-extrabold text-white text-sm sm:text-lg tracking-tight truncate">Projeto Agentforce - Boticário</span>
+                            </div>
+                            <span class="hidden lg:block text-[11px] text-slate-400 font-medium whitespace-nowrap">CABEÇALHO EXECUTIVO • OBJETIVO ESTRATÉGICO</span>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                        <button id="themeToggle" onclick="toggleTheme()" class="h-9 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold border border-slate-700 transition-colors inline-flex items-center gap-2 whitespace-nowrap">
+                            <i id="themeToggleIcon" class="fa-solid fa-sun text-amber-400"></i>
+                            <span id="themeToggleText" class="hidden sm:inline">Tema Claro</span>
+                        </button>
+                        <span class="hidden md:inline-flex items-center gap-1.5 h-9 px-3 rounded-xl bg-emerald-950/80 text-emerald-400 text-xs font-bold border border-emerald-800/80 status-dark whitespace-nowrap">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            SPI 1.0 — EM DIA
+                        </span>
+                        <button onclick="window.print()" class="h-9 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold border border-slate-700 transition-colors inline-flex items-center gap-2 whitespace-nowrap">
+                            <i class="fa-solid fa-file-pdf text-emerald-400"></i>
+                            <span class="hidden sm:inline">Exportar PDF</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="flex items-center justify-end gap-4 sm:gap-6 text-[11px] font-semibold uppercase tracking-wider text-slate-300 whitespace-nowrap overflow-x-auto pb-1">
+                    <a href="#objetivo" class="hover:text-boticario-500 transition-colors">Objetivo</a>
+                    <a href="#fases" class="hover:text-boticario-500 transition-colors">História das Fases</a>
+                    <a href="#horas-dias" class="hover:text-boticario-500 transition-colors">Tempo & Dias</a>
+                    <a href="#marcos" class="hover:text-boticario-500 transition-colors">Principais Marcos</a>
+                    <a href="#entregas" class="hover:text-boticario-500 transition-colors">Frentes</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-12">
+
+        <section id="objetivo" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-boticario-900/40 p-6 sm:p-10 border border-slate-800 shadow-2xl">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-boticario-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-salesforce-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <img src="/Users/paulaf/Downloads/Astro boticario.png" alt="Avatar Boticário" class="hero-watermark">
+
+            <div class="relative z-10 space-y-6">
+                <!-- Meta tags -->
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-widest">
+                        <i class="fa-solid fa-bullseye-arrow"></i> VISÃO EXECUTIVA DO PROJETO
+                    </div>
+                    <div class="text-xs text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
+                        <i class="fa-regular fa-calendar-days mr-1 text-slate-300"></i> Semana Atual: 03/08/2026 a 09/08/2026
+                    </div>
+                </div>
+
+                <!-- Main Objective Statement -->
+                <div class="space-y-3">
+                    <h1 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+                        Evolução Arquitetural & Inteligência Conversacional BIA (Agentforce)
+                    </h1>
+                    <div class="bg-slate-900/80 p-5 sm:p-6 rounded-2xl border border-boticario-500/30 text-slate-200 text-sm sm:text-base leading-relaxed space-y-3">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                        <p class="font-semibold text-emerald-400 text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-quote-left mr-1"></i> O que o cliente pediu
+                            </p>
+                            <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">
+                                Prioridade #1: Multissessão N1
+                            </span>
+                        </div>
+                        <p class="text-slate-100 font-medium leading-relaxed">
+                            Substituir o <strong>Script Guiado</strong> atual por um <strong>Copiloto de IA conversacional (BIA)</strong>, com foco prioritario no <strong>Modelo de Agente Multissessão N1</strong> para permitir atendimentos simultaneos com contexto isolado.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Client-Clear Storyline -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                    <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-700">
+                        <span class="text-[11px] text-emerald-400 font-bold uppercase tracking-wider">O que foi pedido</span>
+                        <p class="text-xs text-slate-200 mt-2 leading-relaxed">
+                            Prioridade definida pelo cliente: <strong>Modelo de Agente Multissessão N1</strong>, para permitir atendimento simultâneo com qualidade e contexto isolado por sessão, além da evolução conversacional do atendimento.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-700">
+                        <span class="text-[11px] text-sky-400 font-bold uppercase tracking-wider">O que já entregamos</span>
+                        <p class="text-xs text-slate-200 mt-2 leading-relaxed">
+                            Definimos a arquitetura alvo, executamos a migração AgentScript Parte 1, realizamos transferência de conhecimento e validamos mitigação técnica estável para RAG.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-700">
+                        <span class="text-[11px] text-amber-400 font-bold uppercase tracking-wider">Onde estamos agora</span>
+                        <p class="text-xs text-slate-200 mt-2 leading-relaxed">
+                            Em fase de implementação e homologação das frentes ativas, com <strong>230h consumidas</strong> de <strong>707h</strong> e próximos marcos já definidos para continuidade.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Success Metrics Cards -->
+                <div class="space-y-2 pt-2">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fa-solid fa-chart-line text-emerald-400"></i> Métricas de Sucesso do Projeto (KPIs)
+                    </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        <div class="bg-slate-900/90 p-4 rounded-xl border border-emerald-500/30">
+                        <span class="text-[11px] text-slate-400 block font-medium">Objetivo de negócio</span>
+                            <div class="text-xl font-black text-white mt-1 flex items-baseline gap-1.5">
+                            <span class="text-emerald-400 text-2xl">Melhorar</span>
+                            </div>
+                        <span class="text-[10px] text-slate-400 mt-1 block">Qualidade e produtividade do atendimento N1</span>
+                        </div>
+
+                        <div class="bg-slate-900/90 p-4 rounded-xl border border-sky-500/30">
+                        <span class="text-[11px] text-slate-400 block font-medium">Objetivo operacional</span>
+                            <div class="text-xl font-black text-white mt-1 flex items-baseline gap-1.5">
+                            <span class="text-sky-400 text-2xl">Reduzir TMA</span>
+                            </div>
+                        <span class="text-[10px] text-sky-300 mt-1 block font-semibold">Menos tempo por atendimento e mais fluidez operacional</span>
+                        </div>
+
+                        <div class="bg-slate-900/90 p-4 rounded-xl border border-purple-500/30">
+                        <span class="text-[11px] text-slate-400 block font-medium">Objetivo de eficiência</span>
+                            <div class="text-xl font-black text-purple-400 mt-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-filter-circle-xmark text-lg"></i>
+                            <span>Mais resolução no N1</span>
+                            </div>
+                        <span class="text-[10px] text-purple-300 mt-1 block">Menor escalonamento desnecessário para N2/N3</span>
+                        </div>
+
+                        <div class="bg-slate-900/90 p-4 rounded-xl border border-amber-500/30">
+                        <span class="text-[11px] text-slate-400 block font-medium">Objetivo de adoção</span>
+                            <div class="text-xl font-black text-white mt-1 flex items-baseline gap-1.5">
+                            <span class="text-amber-400 text-2xl">Aumentar engajamento</span>
+                            </div>
+                        <span class="text-[10px] text-amber-300 mt-1 block font-semibold">Mais confiança e aderência do time ao novo fluxo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Metrics Bar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+                    <div class="glass-card p-4 rounded-2xl border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-medium mb-1">Duração Total</span>
+                        <div class="text-2xl font-black text-white">6,4 <span class="text-xs text-slate-400 font-normal">Semanas</span></div>
+                        <span class="text-[11px] text-emerald-400 mt-1 block font-medium"><i class="fa-solid fa-clock"></i> 33 Dias Úteis (15/07 a 28/08)</span>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-medium mb-1">Horas SOW Contratadas</span>
+                        <div class="text-2xl font-black text-white">707 <span class="text-xs text-slate-400 font-normal">Horas</span></div>
+                        <span class="text-[11px] text-sky-400 mt-1 block font-medium"><i class="fa-solid fa-user-gear"></i> Time Especialista SF</span>
+                    </div>
+
+                        <div class="glass-card p-4 rounded-2xl border border-slate-800">
+                            <span class="text-xs text-slate-400 block font-medium mb-1">Consumo Atual Reportado</span>
+                            <div class="text-2xl font-black text-emerald-400">230h <span class="text-xs text-slate-400 font-normal">/ 707h</span></div>
+                            <span class="text-[11px] text-slate-300 mt-1 block font-medium">Saldo: <strong class="text-white">477 horas</strong></span>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-2xl border border-slate-800">
+                            <span class="text-xs text-slate-400 block font-medium mb-1">Frentes de Trabalho Ativas</span>
+                            <div class="text-2xl font-black text-purple-400">5 <span class="text-xs text-slate-400 font-normal">Frentes</span></div>
+                            <span class="text-[11px] text-purple-300 mt-1 block font-medium">Acompanhamento executivo semanal</span>
+                        </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-800 pb-3">
+                        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-sky-400"></i>
+                            Backlog de Horas Restantes & Visão da Semana
+                        </h3>
+                        <span class="text-xs text-slate-400">Base: cronograma mais recente do NotebookLM</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3">
+                        <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block">Horas restantes para utilização</span>
+                            <span class="text-xl font-extrabold text-sky-400">477h</span>
+                            <p class="text-[11px] text-slate-300 mt-1">Disponíveis para execução das próximas frentes.</p>
+                        </div>
+                        <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block">Backlog de execução (resumo)</span>
+                            <p class="text-[11px] text-slate-200 mt-1">Homologação AgentScript, estabilização multissessão, evolução da base em padrão ouro e início de Quick-Actions.</p>
+                        </div>
+                        <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
+                            <span class="text-[11px] text-slate-400 block">Visão da semana atual (03/08–05/08)</span>
+                            <p class="text-[11px] text-slate-200 mt-1">Consumo reportado de 80h na semana, com refinamento de arquitetura, conversão de artigos e preparação de deploy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fases" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-timeline text-boticario-500"></i>
+                        A História das Fases do Projeto
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-400">
+                        Navegue pelas 6 fases ordenadas do projeto, tempo gasto em dias/horas e objetivos de cada etapa.
+                    </p>
+                </div>
+
+                <!-- Phase Status Filter Buttons -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="filterFases('todas')" id="btnFaseTodas" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-boticario-500 text-white shadow-sm">
+                        Todas as Fases
+                    </button>
+                    <button onclick="filterFases('concluido')" id="btnFaseConcluidas" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">
+                        Concluídas
+                    </button>
+                    <button onclick="filterFases('andamento')" id="btnFaseAndamento" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">
+                        Em Andamento
+                    </button>
+                    <button onclick="filterFases('planejado')" id="btnFasePlanejadas" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700">
+                        Planejadas
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-2 text-[11px]">
+                <span class="px-2 py-1 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 font-semibold">Verde = Concluído</span>
+                <span class="px-2 py-1 rounded bg-sky-950 text-sky-300 border border-sky-800 font-semibold">Azul = Em andamento</span>
+                <span class="px-2 py-1 rounded bg-red-950 text-red-300 border border-red-800 font-semibold">Vermelho = Atrasado</span>
+                <span class="px-2 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 font-semibold">Cinza = Não iniciado</span>
+            </div>
+
+            <!-- Vertical Timeline Story -->
+            <div class="relative timeline-line space-y-8 pl-10 md:pl-0">
+
+                <!-- FASE 1 -->
+                <div class="fase-card fase-concluido relative md:grid md:grid-cols-2 md:gap-8 items-center">
+                    <div class="hidden md:block text-right pr-8">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block">15/07 a 24/07/2026</span>
+                        <h3 class="text-lg font-bold text-white">Fase 1: Setup & Governança Executiva</h3>
+                        <p class="text-xs text-slate-400 mt-1">Liberação de acessos, alinhamento de papéis e estrutura de acompanhamento ágil.</p>
+                    </div>
+
+                    <!-- Timeline Circle Icon -->
+                    <div class="absolute -left-[30px] md:left-1/2 md:-translate-x-1/2 top-0 w-10 h-10 rounded-full bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-sm shadow-lg shadow-emerald-500/30 border-4 border-slate-900">
+                        1
+                    </div>
+
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl border-t-4 border-t-emerald-500">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="md:hidden text-xs font-bold text-emerald-400">15/07 a 24/07/2026</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-950 text-emerald-400 border border-emerald-800">
+                                CONCLUÍDO (100%)
+                            </span>
+                        </div>
+                        <h3 class="md:hidden text-base font-bold text-white mb-2">Fase 1: Setup & Governança Executiva</h3>
+
+                        <!-- Hours & Days badge -->
+                        <div class="flex flex-wrap items-center gap-3 bg-slate-900/80 p-3 rounded-xl mb-3 text-xs">
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-calendar-day text-emerald-400 mr-1"></i> <strong>Tempo Estimado:</strong> 5 Dias Úteis
+                            </div>
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-clock text-sky-400 mr-1"></i> <strong>Horas Consumidas:</strong> 36 Horas
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                            Estabelecimento de syncs diários/semanais (Paula Máximo PM), liberação de MFA/SSO em ambiente Sandbox DevNicole e governança da planilha de riscos.
+                        </p>
+
+                        <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-400">
+                            <span><strong>Marcos:</strong> Kickoff realizado • Acessos 100% liberados</span>
+                            <span class="text-emerald-400 font-bold">100% Ok</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FASE 2 -->
+                <div class="fase-card fase-andamento relative md:grid md:grid-cols-2 md:gap-8 items-center">
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl border-t-4 border-t-sky-500 md:text-right">
+                        <div class="flex items-center justify-between md:flex-row-reverse mb-2">
+                            <span class="text-xs font-bold text-sky-400">25/07 a 31/07/2026</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-sky-950 text-sky-300 border border-sky-800">
+                                EM ANDAMENTO (TESTES FINAIS)
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-2">Fase 2: Agentes Transacionais (AgentScript P1)</h3>
+
+                        <div class="flex flex-wrap items-center gap-3 bg-slate-900/80 p-3 rounded-xl mb-3 text-xs md:justify-end">
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-calendar-day text-sky-400 mr-1"></i> <strong>Janela:</strong> 21/07 a 27/07
+                            </div>
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-clock text-sky-400 mr-1"></i> <strong>Consumo Reportado:</strong> 56 Horas (semana 20/Jul)
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                            Migração da arquitetura do <i>Agent Legacy</i> para a nova engine declarativa <strong>AgentScript</strong> no novo Agent Builder. Testes finais em andamento com sucesso e transferência técnica realizada em 22/07 com o time do Grupo Boticário.
+                        </p>
+
+                        <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-400">
+                            <span class="text-emerald-400 font-bold">Evolução positiva nos testes</span>
+                            <span><strong>Principal Entrega:</strong> Guia de AgentScript + Sample Apps</span>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Circle Icon -->
+                    <div class="absolute -left-[30px] md:left-1/2 md:-translate-x-1/2 top-0 w-10 h-10 rounded-full bg-sky-500 text-slate-950 font-black flex items-center justify-center text-sm shadow-lg shadow-sky-500/30 border-4 border-slate-900">
+                        2
+                    </div>
+
+                    <div class="hidden md:block text-left pl-8">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block">25/07 a 31/07/2026</span>
+                        <h3 class="text-lg font-bold text-white">Fase 2: Agentes Transacionais (P1)</h3>
+                        <p class="text-xs text-slate-400 mt-1">Substituição do modelo legado por scripts determinísticos e treinamento prático do time interno.</p>
+                    </div>
+                </div>
+
+                <!-- FASE 4 -->
+                <div class="fase-card fase-andamento relative md:grid md:grid-cols-2 md:gap-8 items-center">
+                    <div class="hidden md:block text-right pr-8">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block">01/08 a 08/08/2026</span>
+                        <h3 class="text-lg font-bold text-white">Fase 4: Modelo de Agente Multissessão N1</h3>
+                        <p class="text-xs text-slate-400 mt-1">Solução de atendimento simultâneo a múltiplos clientes em paralelo no N1 via LWC.</p>
+                    </div>
+
+                    <!-- Timeline Circle Icon -->
+                    <div class="absolute -left-[30px] md:left-1/2 md:-translate-x-1/2 top-0 w-10 h-10 rounded-full bg-sky-500 text-slate-950 font-black flex items-center justify-center text-sm shadow-lg shadow-sky-500/30 border-4 border-slate-900">
+                        4
+                    </div>
+
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl border-t-4 border-t-sky-500">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="md:hidden text-xs font-bold text-sky-400">01/08 a 08/08/2026</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-sky-950 text-sky-300 border border-sky-800 animate-pulse">
+                                EM ANDAMENTO
+                            </span>
+                        </div>
+                        <h3 class="md:hidden text-base font-bold text-white mb-2">Fase 4: Modelo Multissessão N1</h3>
+
+                        <div class="flex flex-wrap items-center gap-3 bg-slate-900/80 p-3 rounded-xl mb-3 text-xs">
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-calendar-day text-sky-400 mr-1"></i> <strong>Janela ativa:</strong> 27/07 em diante
+                            </div>
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-clock text-sky-400 mr-1"></i> <strong>Status:</strong> implementação e refinamento
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                            Decisão chave em 21/07: Descarte do <i>Service Assistant</i> (restrito ao objeto Case) e aprovação do <strong>Employee Agent embutido no MessagingSession</strong>. Nas semanas seguintes, houve avanço da implementação LWC, uso do Testing Center e refinamentos de arquitetura.
+                        </p>
+
+                        <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-400">
+                            <span><strong>Próximo Marco:</strong> estabilização e homologação técnica</span>
+                            <span class="text-sky-400 font-bold">Frente ativa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FASE 3 -->
+                <div class="fase-card fase-andamento relative md:grid md:grid-cols-2 md:gap-8 items-center">
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl border-t-4 border-t-sky-500 md:text-right">
+                        <div class="flex items-center justify-between md:flex-row-reverse mb-2">
+                            <span class="text-xs font-bold text-sky-400">20/07 a 15/08/2026</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-sky-950 text-sky-300 border border-sky-800">
+                                EM ANDAMENTO
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-2">Fase 3: Base de Conhecimento (KB) & RAG</h3>
+
+                        <div class="flex flex-wrap items-center gap-3 bg-slate-900/80 p-3 rounded-xl mb-3 text-xs md:justify-end">
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-calendar-day text-sky-400 mr-1"></i> <strong>Período:</strong> 20/07 a 08/08
+                            </div>
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-clock text-sky-400 mr-1"></i> <strong>Status:</strong> avaliação dos artigos 1 ao 25
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                            Avaliação qualitativa e testes nos artigos 1 a 25 em DevNicole. Implementada mitigação para busca RAG com <strong>Prompt Builder + Flows</strong>, mantendo cronograma sem atraso. Em paralelo, segue pendente o alinhamento da base legada BIA para o padrão HAG/Markdown.
+                        </p>
+
+                        <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-400">
+                            <span class="text-sky-400 font-bold">Mitigação RAG estável (23/07)</span>
+                            <span><strong>Escopo:</strong> Artigos 1 ao 25</span>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Circle Icon -->
+                    <div class="absolute -left-[30px] md:left-1/2 md:-translate-x-1/2 top-0 w-10 h-10 rounded-full bg-sky-500 text-slate-950 font-black flex items-center justify-center text-sm shadow-lg shadow-sky-500/30 border-4 border-slate-900">
+                        3
+                    </div>
+
+                    <div class="hidden md:block text-left pl-8">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block">20/07 a 15/08/2026</span>
+                        <h3 class="text-lg font-bold text-white">Fase 3: Base de Conhecimento & RAG</h3>
+                        <p class="text-xs text-slate-400 mt-1">Diagnóstico qualitativo de artigos e contorno de limitação de busca no conhecimento nativo.</p>
+                    </div>
+                </div>
+
+                <!-- FASE 5 -->
+                <div class="fase-card fase-planejado relative md:grid md:grid-cols-2 md:gap-8 items-center">
+                    <div class="hidden md:block text-right pr-8">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">11/08 a 22/08/2026</span>
+                        <h3 class="text-lg font-bold text-white">Fase 5: Quick-Actions & Conversacional</h3>
+                        <p class="text-xs text-slate-400 mt-1">Definição de componentes conversacionais e ações rápidas reutilizáveis para o atendimento.</p>
+                    </div>
+
+                    <!-- Timeline Circle Icon -->
+                    <div class="absolute -left-[30px] md:left-1/2 md:-translate-x-1/2 top-0 w-10 h-10 rounded-full bg-slate-700 text-slate-300 font-black flex items-center justify-center text-sm border-4 border-slate-900">
+                        5
+                    </div>
+
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl border-t-4 border-t-slate-600">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="md:hidden text-xs font-bold text-slate-400">11/08 a 22/08/2026</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-slate-800 text-slate-300 border border-slate-700">
+                                NÃO INICIADO
+                            </span>
+                        </div>
+                        <h3 class="md:hidden text-base font-bold text-white mb-2">Fase 5: Quick-Actions & Conversacional</h3>
+
+                        <div class="flex flex-wrap items-center gap-3 bg-slate-900/80 p-3 rounded-xl mb-3 text-xs">
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-calendar-day text-slate-400 mr-1"></i> <strong>Tempo Estimado:</strong> 10 Dias Úteis
+                            </div>
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-clock text-sky-400 mr-1"></i> <strong>Horas Alocadas:</strong> 60 Horas
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                            Mapeamento e blueprint para disponibilização de ações ágeis (emissão de protocolo por clique, regras de transferência e modelos conversacionais padronizados). Reunião de alinhamento de escopo agendada para 10/08 a 14/08.
+                        </p>
+
+                        <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-400">
+                            <span><strong>Próxima Ação:</strong> Workshop de alinhamento com N1/N2</span>
+                            <span class="text-slate-400 font-bold">Janela Ago/S2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FASE 6 -->
+                <div class="fase-card fase-planejado relative md:grid md:grid-cols-2 md:gap-8 items-center">
+                    <div class="glass-card glass-card-hover p-6 rounded-2xl border-t-4 border-t-slate-600 md:text-right">
+                        <div class="flex items-center justify-between md:flex-row-reverse mb-2">
+                            <span class="text-xs font-bold text-slate-400">18/08 a 28/08/2026</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-slate-800 text-slate-300 border border-slate-700">
+                                NÃO INICIADO
+                            </span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white mb-2">Fase 6: Backlog de Evoluções Futuras</h3>
+
+                        <div class="flex flex-wrap items-center gap-3 bg-slate-900/80 p-3 rounded-xl mb-3 text-xs md:justify-end">
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-calendar-day text-slate-400 mr-1"></i> <strong>Janela:</strong> após estabilização das frentes atuais
+                            </div>
+                            <div class="text-slate-300">
+                                <i class="fa-solid fa-clock text-sky-400 mr-1"></i> <strong>Status:</strong> planejamento de priorização
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                            Frente reservada para priorização de evoluções transacionais futuras após a consolidação de AgentScript, Knowledge Base e modelo multissessão, com detalhamento técnico a ser definido no próximo ciclo executivo.
+                        </p>
+
+                        <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-400">
+                            <span class="text-slate-300 font-bold">Escopo em definição</span>
+                            <span><strong>Atividade:</strong> priorização executiva</span>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Circle Icon -->
+                    <div class="absolute -left-[30px] md:left-1/2 md:-translate-x-1/2 top-0 w-10 h-10 rounded-full bg-slate-700 text-slate-300 font-black flex items-center justify-center text-sm border-4 border-slate-900">
+                        6
+                    </div>
+
+                    <div class="hidden md:block text-left pl-8">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">18/08 a 28/08/2026</span>
+                        <h3 class="text-lg font-bold text-white">Fase 6: Backlog de Evoluções Futuras</h3>
+                        <p class="text-xs text-slate-400 mt-1">Planejamento de expansão transacional após conclusão dos marcos de curto prazo.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="horas-dias" class="space-y-6">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-stopwatch text-sky-400"></i>
+                    Roadmap de Tempo Gasto por Fase (Dias & Horas)
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Balanço consolidado de consumo SOW (707h / 12 semanas) com visão semanal reportada.
+                </p>
+            </div>
+
+            <!-- Charts Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- Donut Chart: SOW Total Burn -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-bold text-white">Balanço Total SOW (707h)</h3>
+                            <span class="text-[10px] bg-emerald-950 text-emerald-400 font-extrabold px-2 py-0.5 rounded border border-emerald-800">
+                                Report Oficial
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1">Consumo inicial reportado referente às primeiras semanas de implantação.</p>
+                    </div>
+
+                    <div class="relative w-full h-52 flex items-center justify-center">
+                        <canvas id="chartSowDonut"></canvas>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 text-center text-xs pt-3 border-t border-slate-800">
+                        <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[10px]">Horas Consumidas</span>
+                            <strong class="text-emerald-400 text-sm font-extrabold">230h (32.5%)</strong>
+                        </div>
+                        <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[10px]">Saldo Restante</span>
+                            <strong class="text-white text-sm font-extrabold">477h (67.5%)</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bar Chart: Time per Phase in Days & Hours -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 lg:col-span-2 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-bold text-white">Consumo Semanal Reportado (Horas)</h3>
+                            <span class="text-xs text-slate-400 font-mono">12 Semanas / 60 Dias</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1">Semanas oficialmente reportadas no repositório até o momento.</p>
+                    </div>
+
+                    <div class="relative w-full h-56">
+                        <canvas id="chartPhasesBar"></canvas>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between text-[11px] text-slate-400 pt-3 border-t border-slate-800">
+                        <span><i class="fa-solid fa-info-circle text-emerald-400 mr-1"></i> Consumo acumulado: 230h (32,5% da SOW).</span>
+                        <span><i class="fa-solid fa-shield-check text-sky-400 mr-1"></i> Saldo remanescente: 477h (67,5%).</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Detailed Table of Days and Hours per Role -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <div class="px-6 py-4 bg-slate-900/80 border-b border-slate-800 flex items-center justify-between">
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-table-list text-boticario-500"></i>
+                        Quadro de Consumo Semanal Consolidado (Horas SOW)
+                    </h3>
+                    <span class="text-xs text-slate-400">Fonte: report executivo semanal</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="bg-slate-900/90 uppercase text-[10px] font-bold text-slate-400 tracking-wider">
+                            <tr>
+                                <th class="px-6 py-3">Semana de Referência</th>
+                                <th class="px-4 py-3 text-center">Horas Consumidas</th>
+                                <th class="px-4 py-3 text-center">% da SOW (707h)</th>
+                                <th class="px-4 py-3 text-center">Acumulado</th>
+                                <th class="px-6 py-3 text-center font-extrabold text-white">Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800">
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="px-6 py-3.5 font-semibold text-white">Semana de 15/Jul/2026</td>
+                                <td class="px-4 py-3.5 text-center font-medium">20h</td>
+                                <td class="px-4 py-3.5 text-center">2,8%</td>
+                                <td class="px-4 py-3.5 text-center">20h</td>
+                                <td class="px-6 py-3.5 text-center text-slate-300">Consumo inicial da fase de setup</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="px-6 py-3.5 font-semibold text-white">Semana de 20/Jul/2026</td>
+                                <td class="px-4 py-3.5 text-center font-medium">56h</td>
+                                <td class="px-4 py-3.5 text-center">7,9%</td>
+                                <td class="px-4 py-3.5 text-center">76h</td>
+                                <td class="px-6 py-3.5 text-center text-slate-300">Avanço de AgentScript + transferência técnica</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="px-6 py-3.5 font-semibold text-white">Semana de 27/Jul/2026</td>
+                                <td class="px-4 py-3.5 text-center font-medium">74h</td>
+                                <td class="px-4 py-3.5 text-center">10,5%</td>
+                                <td class="px-4 py-3.5 text-center">150h</td>
+                                <td class="px-6 py-3.5 text-center text-slate-300">LWC multissessão, testes em massa e refinamentos de RAG</td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="px-6 py-3.5 font-semibold text-white">Semana de 03/Ago/2026</td>
+                                <td class="px-4 py-3.5 text-center font-medium">80h</td>
+                                <td class="px-4 py-3.5 text-center">11,3%</td>
+                                <td class="px-4 py-3.5 text-center">230h</td>
+                                <td class="px-6 py-3.5 text-center text-slate-300">Refinamento com arquitetura, conversão de artigos e preparação de deploy</td>
+                            </tr>
+
+                        </tbody>
+                        <tfoot class="bg-slate-900/90 font-bold text-white border-t border-slate-700">
+                            <tr>
+                                <td class="px-6 py-3 text-emerald-400">TOTAL DE HORAS CONSUMIDAS</td>
+                                <td class="px-4 py-3 text-center">230h</td>
+                                <td class="px-4 py-3 text-center text-emerald-400">32,5%</td>
+                                <td class="px-4 py-3 text-center">230h</td>
+                                <td class="px-6 py-3 text-center text-sm font-black text-sky-400">Saldo: 477h</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="marcos" class="space-y-6">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-flag-checkered text-emerald-400"></i>
+                    Principais Marcos Alcançados & Decisões Chave
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Cronologia dos momentos decisivos da arquitetura, mitigações técnicas e validações do projeto.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <!-- Marco 1 -->
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                            21/07/2026
+                        </span>
+                        <i class="fa-solid fa-ban text-red-400"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Descarte do Service Assistant</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Identificado que o <i>Service Assistant</i> é restrito ao objeto <i>Case</i> e incompatível com o objeto <code>MessagingSession</code> de chat, inviabilizando conversas fluidas.
+                    </p>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-emerald-400 font-semibold border border-slate-800">
+                        <i class="fa-solid fa-circle-check mr-1"></i> Aprovado Employee Agent via LWC
+                    </div>
+                </div>
+
+                <!-- Marco 2 -->
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800">
+                            21/07/2026
+                        </span>
+                        <i class="fa-solid fa-shield-halved text-amber-400"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Mitigação do RAG Nativo</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        A Action standard de busca no conhecimento nativo apresentou instabilidade. Adotada solução temporária via <strong>Prompt Builder + Flows (Busca Semântica)</strong>.
+                    </p>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-amber-300 font-semibold border border-slate-800">
+                        <i class="fa-solid fa-bolt mr-1"></i> Testado em 23/07 sem intermitências
+                    </div>
+                </div>
+
+                <!-- Marco 3 -->
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-950 text-purple-400 border border-purple-800">
+                            22/07/2026
+                        </span>
+                        <i class="fa-solid fa-graduation-cap text-purple-400"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Transferência AgentScript</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Demonstração técnica prática para o desenvolvedor do Grupo Boticário com entrega do Guia Oficial de AgentScript, Sample Apps e introdução ao novo Agent Builder.
+                    </p>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-purple-300 font-semibold border border-slate-800">
+                        <i class="fa-solid fa-handshake mr-1"></i> Time Boticário 100% Capacitado
+                    </div>
+                </div>
+
+                <!-- Marco 4 -->
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                            27/07/2026
+                        </span>
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Migração AgentScript P1</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Encerrada a janela planejada da migração da engine legada para o AgentScript no ambiente Sandbox DevNicole, com evolução consistente e continuidade dos testes.
+                    </p>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-emerald-400 font-semibold border border-slate-800">
+                        <i class="fa-solid fa-check-double mr-1"></i> Entrega concluída e em ciclo de homologação
+                    </div>
+                </div>
+
+                <!-- Marco 5 -->
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-800">
+                            03/08/2026
+                        </span>
+                        <i class="fa-solid fa-code text-sky-400"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Multissessão em Implementação</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Após a decisão arquitetural, a frente avançou com desenvolvimento e ajustes do componente LWC em <code>MessagingSession</code>, além de validações de comportamento em testes.
+                    </p>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-sky-300 font-semibold border border-slate-800">
+                        <i class="fa-solid fa-circle-check mr-1"></i> Implementação ativa + refinamento técnico
+                    </div>
+                </div>
+
+                <!-- Marco 6 -->
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-950 text-indigo-400 border border-indigo-800">
+                            10/08/2026
+                        </span>
+                        <i class="fa-solid fa-network-wired text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white">Início de Quick-Actions Planejado</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Janela planejada para início das Quick-Actions e fluxo conversacional no período de 03/08 a 14/08, mantendo sequência do cronograma.
+                    </p>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-indigo-300 font-semibold border border-slate-800">
+                        <i class="fa-regular fa-clock mr-1"></i> Próxima frente a iniciar
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="entregas" class="space-y-6">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-cubes text-boticario-500"></i>
+                    Frentes Técnicas & Entregas Principais do Escopo
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Detalhes das 5 frentes de entrega reportadas até o momento.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Deliverable 1: Agentforce Especialista -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-emerald-500 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                                FRENTE 1 &bull; AGENTFORCE ESPECIALISTA
+                            </span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-emerald-950 text-emerald-400 border border-emerald-800">
+                                Diagnóstico N1
+                            </span>
+                        </div>
+
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-brain text-emerald-400"></i> Agente Conversacional BIA
+                        </h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Apoio direto aos atendentes N1 em diagnósticos complexos via busca RAG na KB, validação do escopo da fila e sugestão de categorização com desfecho (FCR ou escalonamento N2).
+                        </p>
+
+                        <ul class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-800">
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> Consulta rápida a 7.000+ processos</li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> Validação automática do escopo de fila</li>
+                            <li><i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> Classificação inteligente de desfecho</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-emerald-300 font-semibold border border-slate-800">
+                        <i class="fa-solid fa-bolt mr-1"></i> Redução no desvio de chamados para N2/N3
+                    </div>
+                </div>
+
+                <!-- Deliverable 2: Componentes LWC -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-sky-500 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-sky-400">
+                                FRENTE 2 &bull; AUTOMAÇÃO DE TELA
+                            </span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-sky-950 text-sky-300 border border-sky-800">
+                                LWC Ações Rápidas
+                            </span>
+                        </div>
+
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-sky-400"></i> Quick-Actions em 1-Clique
+                        </h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Componentes integrados na tela para emissão instantânea de protocolo, validação cadastral da conta, criação automática do caso, resumo no histórico e anexação de arquivos.
+                        </p>
+
+                        <ul class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-800">
+                            <li><i class="fa-solid fa-circle-check text-sky-400 mr-1"></i> Emissão do protocolo de atendimento em 1 clique</li>
+                            <li><i class="fa-solid fa-circle-check text-sky-400 mr-1"></i> Validação cadastral & criação automática de Caso</li>
+                            <li><i class="fa-solid fa-circle-check text-sky-400 mr-1"></i> Anexação automática dos arquivos do cliente</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-sky-300 font-semibold border border-slate-800">
+                        <i class="fa-solid fa-clock mr-1"></i> Foco na meta de TMA de 20min ➔ 18min
+                    </div>
+                </div>
+
+                <!-- Deliverable 3: Multissessão -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-purple-500 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-purple-400">
+                                FRENTE 3 &bull; MULTISSESSÃO N1
+                            </span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-purple-950 text-purple-300 border border-purple-800">
+                                MessagingSession LWC
+                            </span>
+                        </div>
+
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-purple-400"></i> Isolamento de Contexto BIA
+                        </h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Resolução para até 2 chats simultâneos por operador. BIA embutida em LWC por <code>MessagingSession</code> no Service Console, isolando a memória de IA por cliente sem vazamento de dados.
+                        </p>
+
+                        <ul class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-800">
+                            <li><i class="fa-solid fa-circle-check text-purple-400 mr-1"></i> Descarte do Service Assistant (limitado a Case)</li>
+                            <li><i class="fa-solid fa-circle-check text-purple-400 mr-1"></i> LWC para abas independentes por atendimento</li>
+                            <li><i class="fa-solid fa-circle-check text-purple-400 mr-1"></i> Zero alucinação/cruzamento em chats paralelos</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-purple-300 font-semibold border border-slate-800">
+                        <i class="fa-solid fa-shield-halved mr-1"></i> Arquitetura multissessão aprovada para implementação
+                    </div>
+                </div>
+
+                <!-- Deliverable 4: Resumos MIAW -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-amber-500 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">
+                                FRENTE 4 &bull; RESUMO AUTOMÁTICO MIAW
+                            </span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-amber-950 text-amber-300 border border-amber-800">
+                                Apex API + JSON
+                            </span>
+                        </div>
+
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-comments text-amber-400"></i> Histórico WhatsApp & MIAW
+                        </h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Recuperação do histórico off-platform de mensagens via chamadas de API em tempo de execução feitas no Apex, gerando JSON estruturado (problema, resumo e resolução).
+                        </p>
+
+                        <ul class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-800">
+                            <li><i class="fa-solid fa-circle-check text-amber-400 mr-1"></i> Conectividade de runtime via Apex API</li>
+                            <li><i class="fa-solid fa-circle-check text-amber-400 mr-1"></i> Prompting estruturado com saída em JSON</li>
+                            <li><i class="fa-solid fa-circle-check text-amber-400 mr-1"></i> Preenchimento de problema, resumo e solução</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-amber-300 font-semibold border border-slate-800">
+                        <i class="fa-brands fa-whatsapp mr-1"></i> Integrado aos canais aprimorados MIAW
+                    </div>
+                </div>
+
+                <!-- Deliverable 5: Transformação da KB -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-indigo-500 space-y-3 flex flex-col justify-between lg:col-span-2">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">
+                                FRENTE 5 &bull; TRANSFORMAÇÃO DA BASE DE CONHECIMENTO (PADRÃO OURO)
+                            </span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-indigo-950 text-indigo-300 border border-indigo-800">
+                                Artigos 1 ao 25 (ciclo atual)
+                            </span>
+                        </div>
+
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-book-bookmark text-indigo-400"></i> Intent Knowledge Base & Micro-Artigos
+                        </h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Estruturação da base no modelo de <i>Arquitetura Baseada em Intenções e Sintomas</i>, começando pelo ciclo atual dos artigos 1 ao 25 já publicados em DevNicole para diagnóstico de qualidade e aderência ao padrão ouro.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-800">
+                            <div class="bg-slate-900/60 p-2.5 rounded-xl">
+                                <span class="text-indigo-400 font-bold block text-xs">Ciclo Atual</span>
+                                <span class="text-[11px] text-slate-400">Artigos 1 ao 25 em avaliação</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-2.5 rounded-xl">
+                                <span class="text-indigo-400 font-bold block text-xs">Padronização</span>
+                                <span class="text-[11px] text-slate-400">Migração para HAG/Markdown</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-2.5 rounded-xl">
+                                <span class="text-indigo-400 font-bold block text-xs">Dependência Atual</span>
+                                <span class="text-[11px] text-slate-400">Alinhar legado BIA (NotebookLM/Docs)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-xl text-[11px] text-indigo-300 font-semibold border border-slate-800 flex items-center justify-between">
+                        <span><i class="fa-solid fa-file-lines mr-1"></i> Artigos 1 ao 25 testados em DevNicole</span>
+                        <span class="text-emerald-400 font-bold">Diagnóstico em Andamento</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 border-t border-slate-800 bg-slate-950 py-8 text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="font-bold text-slate-300">Grupo Boticário</span>
+                <span>&bull;</span>
+                <span>Salesforce Professional Services</span>
+            </div>
+            <div class="text-center sm:text-right text-slate-400">
+                Relatório de Evolução das Fases do Projeto &bull; Agentforce AI (2026)
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Phase Filter Logic
+        function filterFases(categoria) {
+            const cards = document.querySelectorAll('.fase-card');
+            const btns = {
+                todas: document.getElementById('btnFaseTodas'),
+                concluido: document.getElementById('btnFaseConcluidas'),
+                andamento: document.getElementById('btnFaseAndamento'),
+                planejado: document.getElementById('btnFasePlanejadas')
+            };
+
+            // Reset buttons style
+            Object.keys(btns).forEach(key => {
+                if (btns[key]) {
+                    btns[key].className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors';
+                }
+            });
+
+            // Highlight selected button
+            if (btns[categoria]) {
+                btns[categoria].className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-boticario-500 text-white shadow-sm';
+            }
+
+            // Show/Hide Cards
+            cards.forEach(card => {
+                if (categoria === 'todas') {
+                    card.style.display = 'grid';
+                } else {
+                    if (card.classList.contains(`fase-${categoria}`)) {
+                        card.style.display = 'grid';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        let sowChartInstance = null;
+        let phasesChartInstance = null;
+
+        function updateThemeToggleButton(isLightMode) {
+            const text = document.getElementById('themeToggleText');
+            const icon = document.getElementById('themeToggleIcon');
+            if (!text || !icon) return;
+            if (isLightMode) {
+                text.textContent = 'Tema Escuro';
+                icon.className = 'fa-solid fa-moon text-slate-600';
+            } else {
+                text.textContent = 'Tema Claro';
+                icon.className = 'fa-solid fa-sun text-amber-400';
+            }
+        }
+
+        function applySavedTheme() {
+            const saved = localStorage.getItem('reportTheme');
+            const isLight = saved === 'light';
+            document.body.classList.toggle('light-mode', isLight);
+            updateThemeToggleButton(isLight);
+            return isLight;
+        }
+
+        function toggleTheme() {
+            const isLightNow = document.body.classList.toggle('light-mode');
+            localStorage.setItem('reportTheme', isLightNow ? 'light' : 'dark');
+            updateThemeToggleButton(isLightNow);
+            renderCharts(isLightNow);
+        }
+
+        function renderCharts(isLightMode) {
+            const tickColor = isLightMode ? '#334155' : '#94a3b8';
+            const legendColor = isLightMode ? '#0f172a' : '#f8fafc';
+            const gridColor = isLightMode ? 'rgba(15, 23, 42, 0.12)' : 'rgba(255, 255, 255, 0.05)';
+            const labelColor = isLightMode ? '#103126' : '#e2e8f0';
+
+            const valueLabelPlugin = {
+                id: 'valueLabelPlugin',
+                afterDatasetsDraw(chart) {
+                    const { ctx } = chart;
+                    ctx.save();
+                    ctx.font = '600 10px Inter, sans-serif';
+                    ctx.fillStyle = labelColor;
+
+                    if (chart.config.type === 'bar') {
+                        chart.data.datasets.forEach((dataset, datasetIndex) => {
+                            const meta = chart.getDatasetMeta(datasetIndex);
+                            meta.data.forEach((bar, index) => {
+                                const value = dataset.data[index];
+                                const suffix = dataset.label.includes('Horas') ? 'h' : '';
+                                ctx.textAlign = 'center';
+                                ctx.fillText(`${value}${suffix}`, bar.x, bar.y - 6);
+                            });
+                        });
+                    }
+
+                    if (chart.config.type === 'doughnut') {
+                        const meta = chart.getDatasetMeta(0);
+                        const values = chart.data.datasets[0].data;
+                        meta.data.forEach((arc, i) => {
+                            const angle = (arc.startAngle + arc.endAngle) / 2;
+                            const radius = arc.outerRadius + 14;
+                            const x = arc.x + Math.cos(angle) * radius;
+                            const y = arc.y + Math.sin(angle) * radius;
+                            ctx.textAlign = 'center';
+                            ctx.fillText(`${values[i]}h`, x, y);
+                        });
+                    }
+                    ctx.restore();
+                }
+            };
+
+            // 1. Donut Chart (SOW Hours Burn Rate)
+            const donutCtx = document.getElementById('chartSowDonut').getContext('2d');
+            if (sowChartInstance) sowChartInstance.destroy();
+            sowChartInstance = new Chart(donutCtx, {
+                type: 'doughnut',
+                plugins: [valueLabelPlugin],
+                data: {
+                    labels: ['Consumido (230h)', 'Saldo Disponível (477h)'],
+                    datasets: [{
+                        data: [230, 477],
+                        backgroundColor: ['#00a86b', '#334155'],
+                        borderWidth: 0,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    cutout: '78%'
+                }
+            });
+
+            // 2. Bar Chart (Time per Phase in Days & Hours)
+            const barCtx = document.getElementById('chartPhasesBar').getContext('2d');
+            if (phasesChartInstance) phasesChartInstance.destroy();
+            phasesChartInstance = new Chart(barCtx, {
+                type: 'bar',
+                plugins: [valueLabelPlugin],
+                data: {
+                    labels: ['Semana 15/Jul', 'Semana 20/Jul', 'Semana 27/Jul', 'Semana 03/Ago'],
+                    datasets: [
+                        {
+                            label: 'Horas Consumidas',
+                            data: [20, 56, 74, 80],
+                            backgroundColor: '#00a86b',
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'Saldo Acumulado',
+                            data: [687, 631, 557, 477],
+                            backgroundColor: '#0176D3',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { grid: { display: false }, ticks: { color: tickColor, font: { size: 10 } } },
+                        y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: tickColor } }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { color: legendColor, boxWidth: 12, font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Render Chart.js Visualizations
+        window.onload = function() {
+            const isLight = applySavedTheme();
+            renderCharts(isLight);
+        };
+    </script>
+</body>
 </html>
